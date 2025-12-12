@@ -1,0 +1,1 @@
+print("Cron job: generating commit proof...")

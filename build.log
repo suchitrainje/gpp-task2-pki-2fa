@@ -1,0 +1,1654 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 570B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 985B 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.11-slim
+#3 DONE 3.5s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [builder 1/5] FROM docker.io/library/python:3.11-slim@sha256:7cd0079a9bd8800c81632d65251048fc2848bf9afda542224b1b10e0cae45575
+#5 resolve docker.io/library/python:3.11-slim@sha256:7cd0079a9bd8800c81632d65251048fc2848bf9afda542224b1b10e0cae45575 0.0s done
+#5 CACHED
+
+#6 [builder 2/5] WORKDIR /app
+#6 CACHED
+
+#7 [internal] load build context
+#7 transferring context: 4.33kB 0.0s done
+#7 DONE 0.0s
+
+#8 [builder 3/5] COPY ./requirements.txt /app/requirements.txt
+#8 DONE 0.0s
+
+#9 [builder 4/5] RUN pip install --no-cache-dir --target /install -r requirements.txt
+#9 ...
+
+#10 [runtime 2/8] RUN ln -snf /usr/share/zoneinfo/UTC /etc/localtime && echo UTC > /etc/timezone
+#10 DONE 0.4s
+
+#11 [runtime 3/8] RUN apt-get update && apt-get install -y --no-install-recommends         cron         tzdata     && rm -rf /var/lib/apt/lists/*
+#11 0.442 Hit:1 http://deb.debian.org/debian trixie InRelease
+#11 0.457 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#11 0.537 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#11 0.587 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+#11 2.801 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#11 2.834 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [82.1 kB]
+#11 3.446 Fetched 9848 kB in 3s (3101 kB/s)
+#11 3.446 Reading package lists...
+#11 3.953 Reading package lists...
+#11 4.453 Building dependency tree...
+#11 4.567 Reading state information...
+#11 4.748 tzdata is already the newest version (2025b-4+deb13u1).
+#11 4.748 The following additional packages will be installed:
+#11 4.749   cron-daemon-common libapparmor1 libsystemd-shared sensible-utils systemd
+#11 4.750 Suggested packages:
+#11 4.750   anacron logrotate checksecurity supercat bat libarchive13t64 libbpf1
+#11 4.750   libcryptsetup12 libdw1t64 libelf1t64 libfido2-1 libgcrypt20 libidn2-0
+#11 4.750   libip4tc2 libp11-kit0 libpwquality1 libqrencode4 libtss2-rc0t64
+#11 4.750   systemd-container systemd-homed systemd-userdbd systemd-boot
+#11 4.750   systemd-resolved systemd-repart libtss2-tcti-device0 polkitd
+#11 4.750 Recommended packages:
+#11 4.750   default-mta | mail-transport-agent libkmod2 default-dbus-system-bus
+#11 4.750   | dbus-system-bus linux-sysctl-defaults systemd-timesyncd | time-daemon
+#11 4.750   systemd-cryptsetup
+#11 4.820 The following NEW packages will be installed:
+#11 4.821   cron cron-daemon-common libapparmor1 libsystemd-shared sensible-utils
+#11 4.821   systemd
+#11 4.929 0 upgraded, 6 newly installed, 0 to remove and 0 not upgraded.
+#11 4.929 Need to get 5422 kB of archives.
+#11 4.929 After this operation, 17.7 MB of additional disk space will be used.
+#11 4.929 Get:1 http://deb.debian.org/debian trixie/main amd64 libsystemd-shared amd64 257.9-1~deb13u1 [2151 kB]
+#11 5.367 Get:2 http://deb.debian.org/debian trixie/main amd64 libapparmor1 amd64 4.1.0-1 [43.7 kB]
+#11 5.383 Get:3 http://deb.debian.org/debian trixie/main amd64 systemd amd64 257.9-1~deb13u1 [3096 kB]
+#11 5.931 Get:4 http://deb.debian.org/debian trixie/main amd64 cron-daemon-common all 3.0pl1-197 [17.8 kB]
+#11 5.933 Get:5 http://deb.debian.org/debian trixie/main amd64 sensible-utils all 0.0.25 [25.0 kB]
+#11 5.940 Get:6 http://deb.debian.org/debian trixie/main amd64 cron amd64 3.0pl1-197 [87.4 kB]
+#11 6.107 debconf: unable to initialize frontend: Dialog
+#11 6.107 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#11 6.107 debconf: falling back to frontend: Readline
+#11 6.108 debconf: unable to initialize frontend: Readline
+#11 6.108 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 6.)
+#11 6.108 debconf: falling back to frontend: Teletype
+#11 6.114 debconf: unable to initialize frontend: Teletype
+#11 6.114 debconf: (This frontend requires a controlling tty.)
+#11 6.114 debconf: falling back to frontend: Noninteractive
+#11 6.717 Fetched 5422 kB in 1s (4858 kB/s)
+#11 6.744 Selecting previously unselected package libsystemd-shared:amd64.
+#11 6.744 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5644 files and directories currently installed.)
+#11 6.755 Preparing to unpack .../libsystemd-shared_257.9-1~deb13u1_amd64.deb ...
+#11 6.761 Unpacking libsystemd-shared:amd64 (257.9-1~deb13u1) ...
+#11 6.890 Selecting previously unselected package libapparmor1:amd64.
+#11 6.891 Preparing to unpack .../libapparmor1_4.1.0-1_amd64.deb ...
+#11 6.900 Unpacking libapparmor1:amd64 (4.1.0-1) ...
+#11 6.952 Setting up libsystemd-shared:amd64 (257.9-1~deb13u1) ...
+#11 7.012 Selecting previously unselected package systemd.
+#11 7.012 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 5657 files and directories currently installed.)
+#11 7.016 Preparing to unpack .../systemd_257.9-1~deb13u1_amd64.deb ...
+#11 7.033 Unpacking systemd (257.9-1~deb13u1) ...
+#11 7.230 Selecting previously unselected package cron-daemon-common.
+#11 7.231 Preparing to unpack .../cron-daemon-common_3.0pl1-197_all.deb ...
+#11 7.237 Unpacking cron-daemon-common (3.0pl1-197) ...
+#11 7.276 Selecting previously unselected package sensible-utils.
+#11 7.277 Preparing to unpack .../sensible-utils_0.0.25_all.deb ...
+#11 7.286 Unpacking sensible-utils (0.0.25) ...
+#11 7.329 Setting up libapparmor1:amd64 (4.1.0-1) ...
+#11 7.341 Setting up systemd (257.9-1~deb13u1) ...
+#11 7.399 Created symlink '/etc/systemd/system/getty.target.wants/getty@tty1.service' → '/usr/lib/systemd/system/getty@.service'.
+#11 7.409 Created symlink '/etc/systemd/system/multi-user.target.wants/remote-fs.target' → '/usr/lib/systemd/system/remote-fs.target'.
+#11 7.415 Created symlink '/etc/systemd/system/sysinit.target.wants/systemd-pstore.service' → '/usr/lib/systemd/system/systemd-pstore.service'.
+#11 7.421 Initializing machine ID from random generator.
+#11 7.442 Creating group 'systemd-journal' with GID 999.
+#11 7.442 Creating group 'systemd-network' with GID 998.
+#11 7.442 Creating user 'systemd-network' (systemd Network Management) with UID 998 and GID 998.
+#11 7.474 /usr/lib/tmpfiles.d/legacy.conf:14: Duplicate line for path "/run/lock", ignoring.
+#11 7.492 Setting up cron-daemon-common (3.0pl1-197) ...
+#11 7.536 Creating group 'crontab' with GID 997.
+#11 7.607 Selecting previously unselected package cron.
+#11 7.607 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6643 files and directories currently installed.)
+#11 7.611 Preparing to unpack .../cron_3.0pl1-197_amd64.deb ...
+#11 7.619 Unpacking cron (3.0pl1-197) ...
+#11 7.664 Setting up sensible-utils (0.0.25) ...
+#11 7.679 Setting up cron (3.0pl1-197) ...
+#11 7.734 invoke-rc.d: could not determine current runlevel
+#11 7.741 invoke-rc.d: policy-rc.d denied execution of start.
+#11 7.822 Created symlink '/etc/systemd/system/multi-user.target.wants/cron.service' → '/usr/lib/systemd/system/cron.service'.
+#11 7.832 Processing triggers for libc-bin (2.41-12) ...
+#11 DONE 8.0s
+
+#9 [builder 4/5] RUN pip install --no-cache-dir --target /install -r requirements.txt
+#9 2.017 Collecting fastapi (from -r requirements.txt (line 1))
+#9 3.301   Downloading fastapi-0.124.4-py3-none-any.whl.metadata (30 kB)
+#9 3.384 Collecting uvicorn (from -r requirements.txt (line 2))
+#9 3.411   Downloading uvicorn-0.38.0-py3-none-any.whl.metadata (6.8 kB)
+#9 3.748 Collecting cryptography (from -r requirements.txt (line 3))
+#9 3.786   Downloading cryptography-46.0.3-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+#9 3.881 Collecting starlette<0.51.0,>=0.40.0 (from fastapi->-r requirements.txt (line 1))
+#9 3.911   Downloading starlette-0.50.0-py3-none-any.whl.metadata (6.3 kB)
+#9 4.118 Collecting pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4 (from fastapi->-r requirements.txt (line 1))
+#9 4.169   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+#9 4.196      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.6/90.6 kB 3.3 MB/s eta 0:00:00
+#9 4.241 Collecting typing-extensions>=4.8.0 (from fastapi->-r requirements.txt (line 1))
+#9 4.269   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#9 4.307 Collecting annotated-doc>=0.0.2 (from fastapi->-r requirements.txt (line 1))
+#9 4.340   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+#9 4.397 Collecting click>=7.0 (from uvicorn->-r requirements.txt (line 2))
+#9 4.431   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+#9 4.469 Collecting h11>=0.8 (from uvicorn->-r requirements.txt (line 2))
+#9 4.501   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#9 4.672 Collecting cffi>=2.0.0 (from cryptography->-r requirements.txt (line 3))
+#9 4.705   Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+#9 4.760 Collecting pycparser (from cffi>=2.0.0->cryptography->-r requirements.txt (line 3))
+#9 4.790   Downloading pycparser-2.23-py3-none-any.whl.metadata (993 bytes)
+#9 4.839 Collecting annotated-types>=0.6.0 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi->-r requirements.txt (line 1))
+#9 4.868   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#9 5.854 Collecting pydantic-core==2.41.5 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi->-r requirements.txt (line 1))
+#9 5.938   Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+#9 6.043 Collecting typing-inspection>=0.4.2 (from pydantic!=1.8,!=1.8.1,!=2.0.0,!=2.0.1,!=2.1.0,<3.0.0,>=1.7.4->fastapi->-r requirements.txt (line 1))
+#9 6.134   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#9 6.269 Collecting anyio<5,>=3.6.2 (from starlette<0.51.0,>=0.40.0->fastapi->-r requirements.txt (line 1))
+#9 6.312   Downloading anyio-4.12.0-py3-none-any.whl.metadata (4.3 kB)
+#9 6.391 Collecting idna>=2.8 (from anyio<5,>=3.6.2->starlette<0.51.0,>=0.40.0->fastapi->-r requirements.txt (line 1))
+#9 6.421   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#9 6.471 Downloading fastapi-0.124.4-py3-none-any.whl (113 kB)
+#9 6.511    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.3/113.3 kB 2.9 MB/s eta 0:00:00
+#9 6.535 Downloading uvicorn-0.38.0-py3-none-any.whl (68 kB)
+#9 6.569    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.1/68.1 kB 2.2 MB/s eta 0:00:00
+#9 6.597 Downloading cryptography-46.0.3-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+#9 7.647    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 4.3 MB/s eta 0:00:00
+#9 7.685 Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+#9 7.712 Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (215 kB)
+#9 7.776    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 215.6/215.6 kB 3.6 MB/s eta 0:00:00
+#9 7.801 Downloading click-8.3.1-py3-none-any.whl (108 kB)
+#9 7.822    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 108.3/108.3 kB 5.8 MB/s eta 0:00:00
+#9 7.870 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 7.942 Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+#9 8.024    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 463.6/463.6 kB 5.7 MB/s eta 0:00:00
+#9 8.081 Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+
+#9 ...
+
+#12 [runtime 4/8] WORKDIR /app
+#12 DONE 0.1s
+
+#9 [builder 4/5] RUN pip install --no-cache-dir --target /install -r requirements.txt
+#9 8.475    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 5.3 MB/s eta 0:00:00
+#9 8.502 Downloading starlette-0.50.0-py3-none-any.whl (74 kB)
+#9 8.519    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.0/74.0 kB 5.0 MB/s eta 0:00:00
+#9 8.553 Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+#9 8.565    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.6/44.6 kB 6.7 MB/s eta 0:00:00
+#9 8.591 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#9 8.638 Downloading anyio-4.12.0-py3-none-any.whl (113 kB)
+#9 8.670    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.4/113.4 kB 3.8 MB/s eta 0:00:00
+#9 8.697 Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+#9 8.764 Downloading pycparser-2.23-py3-none-any.whl (118 kB)
+#9 8.775    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 118.1/118.1 kB 13.5 MB/s eta 0:00:00
+#9 8.801 Downloading idna-3.11-py3-none-any.whl (71 kB)
+#9 8.814    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.0/71.0 kB 7.8 MB/s eta 0:00:00
+#9 8.913 Installing collected packages: typing-extensions, pycparser, idna, h11, click, annotated-types, annotated-doc, uvicorn, typing-inspection, pydantic-core, cffi, anyio, starlette, pydantic, cryptography, fastapi
+#9 10.000 Successfully installed annotated-doc-0.0.4 annotated-types-0.7.0 anyio-4.12.0 cffi-2.0.0 click-8.3.1 cryptography-46.0.3 fastapi-0.124.4 h11-0.16.0 idna-3.11 pycparser-2.23 pydantic-2.12.5 pydantic-core-2.41.5 starlette-0.50.0 typing-extensions-4.15.0 typing-inspection-0.4.2 uvicorn-0.38.0
+#9 10.00 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#9 10.20 
+#9 10.20 [notice] A new release of pip is available: 24.0 -> 25.3
+#9 10.20 [notice] To update, run: pip install --upgrade pip
+#9 DONE 10.5s
+
+#13 [builder 5/5] RUN ls -R /install
+#13 0.327 /install:
+#13 0.327 __pycache__
+#13 0.327 _cffi_backend.cpython-311-x86_64-linux-gnu.so
+#13 0.327 annotated_doc
+#13 0.327 annotated_doc-0.0.4.dist-info
+#13 0.327 annotated_types
+#13 0.327 annotated_types-0.7.0.dist-info
+#13 0.327 anyio
+#13 0.327 anyio-4.12.0.dist-info
+#13 0.327 bin
+#13 0.327 cffi
+#13 0.327 cffi-2.0.0.dist-info
+#13 0.327 click
+#13 0.327 click-8.3.1.dist-info
+#13 0.327 cryptography
+#13 0.327 cryptography-46.0.3.dist-info
+#13 0.327 fastapi
+#13 0.327 fastapi-0.124.4.dist-info
+#13 0.327 h11
+#13 0.327 h11-0.16.0.dist-info
+#13 0.327 idna
+#13 0.327 idna-3.11.dist-info
+#13 0.327 pycparser
+#13 0.327 pycparser-2.23.dist-info
+#13 0.327 pydantic
+#13 0.327 pydantic-2.12.5.dist-info
+#13 0.327 pydantic_core
+#13 0.327 pydantic_core-2.41.5.dist-info
+#13 0.327 starlette
+#13 0.327 starlette-0.50.0.dist-info
+#13 0.327 typing_extensions-4.15.0.dist-info
+#13 0.327 typing_extensions.py
+#13 0.327 typing_inspection
+#13 0.327 typing_inspection-0.4.2.dist-info
+#13 0.327 uvicorn
+#13 0.327 uvicorn-0.38.0.dist-info
+#13 0.327 
+#13 0.327 /install/__pycache__:
+#13 0.327 typing_extensions.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/annotated_doc:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 main.py
+#13 0.327 py.typed
+#13 0.327 
+#13 0.327 /install/annotated_doc/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 main.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/annotated_doc-0.0.4.dist-info:
+#13 0.327 INSTALLER
+#13 0.327 METADATA
+#13 0.327 RECORD
+#13 0.327 WHEEL
+#13 0.327 entry_points.txt
+#13 0.327 licenses
+#13 0.327 
+#13 0.327 /install/annotated_doc-0.0.4.dist-info/licenses:
+#13 0.327 LICENSE
+#13 0.327 
+#13 0.327 /install/annotated_types:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 py.typed
+#13 0.327 test_cases.py
+#13 0.327 
+#13 0.327 /install/annotated_types/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 test_cases.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/annotated_types-0.7.0.dist-info:
+#13 0.327 INSTALLER
+#13 0.327 METADATA
+#13 0.327 RECORD
+#13 0.327 WHEEL
+#13 0.327 licenses
+#13 0.327 
+#13 0.327 /install/annotated_types-0.7.0.dist-info/licenses:
+#13 0.327 LICENSE
+#13 0.327 
+#13 0.327 /install/anyio:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 _backends
+#13 0.327 _core
+#13 0.327 abc
+#13 0.327 from_thread.py
+#13 0.327 functools.py
+#13 0.327 lowlevel.py
+#13 0.327 py.typed
+#13 0.327 pytest_plugin.py
+#13 0.327 streams
+#13 0.327 to_interpreter.py
+#13 0.327 to_process.py
+#13 0.327 to_thread.py
+#13 0.327 
+#13 0.327 /install/anyio/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 from_thread.cpython-311.pyc
+#13 0.327 functools.cpython-311.pyc
+#13 0.327 lowlevel.cpython-311.pyc
+#13 0.327 pytest_plugin.cpython-311.pyc
+#13 0.327 to_interpreter.cpython-311.pyc
+#13 0.327 to_process.cpython-311.pyc
+#13 0.327 to_thread.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/anyio/_backends:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 _asyncio.py
+#13 0.327 _trio.py
+#13 0.327 
+#13 0.327 /install/anyio/_backends/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 _asyncio.cpython-311.pyc
+#13 0.327 _trio.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/anyio/_core:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 _asyncio_selector_thread.py
+#13 0.327 _contextmanagers.py
+#13 0.327 _eventloop.py
+#13 0.327 _exceptions.py
+#13 0.327 _fileio.py
+#13 0.327 _resources.py
+#13 0.327 _signals.py
+#13 0.327 _sockets.py
+#13 0.327 _streams.py
+#13 0.327 _subprocesses.py
+#13 0.327 _synchronization.py
+#13 0.327 _tasks.py
+#13 0.327 _tempfile.py
+#13 0.327 _testing.py
+#13 0.327 _typedattr.py
+#13 0.327 
+#13 0.327 /install/anyio/_core/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 _asyncio_selector_thread.cpython-311.pyc
+#13 0.327 _contextmanagers.cpython-311.pyc
+#13 0.327 _eventloop.cpython-311.pyc
+#13 0.327 _exceptions.cpython-311.pyc
+#13 0.327 _fileio.cpython-311.pyc
+#13 0.327 _resources.cpython-311.pyc
+#13 0.327 _signals.cpython-311.pyc
+#13 0.327 _sockets.cpython-311.pyc
+#13 0.327 _streams.cpython-311.pyc
+#13 0.327 _subprocesses.cpython-311.pyc
+#13 0.327 _synchronization.cpython-311.pyc
+#13 0.327 _tasks.cpython-311.pyc
+#13 0.327 _tempfile.cpython-311.pyc
+#13 0.327 _testing.cpython-311.pyc
+#13 0.327 _typedattr.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/anyio/abc:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 _eventloop.py
+#13 0.327 _resources.py
+#13 0.327 _sockets.py
+#13 0.327 _streams.py
+#13 0.327 _subprocesses.py
+#13 0.327 _tasks.py
+#13 0.327 _testing.py
+#13 0.327 
+#13 0.327 /install/anyio/abc/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 _eventloop.cpython-311.pyc
+#13 0.327 _resources.cpython-311.pyc
+#13 0.327 _sockets.cpython-311.pyc
+#13 0.327 _streams.cpython-311.pyc
+#13 0.327 _subprocesses.cpython-311.pyc
+#13 0.327 _tasks.cpython-311.pyc
+#13 0.327 _testing.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/anyio/streams:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 buffered.py
+#13 0.327 file.py
+#13 0.327 memory.py
+#13 0.327 stapled.py
+#13 0.327 text.py
+#13 0.327 tls.py
+#13 0.327 
+#13 0.327 /install/anyio/streams/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 buffered.cpython-311.pyc
+#13 0.327 file.cpython-311.pyc
+#13 0.327 memory.cpython-311.pyc
+#13 0.327 stapled.cpython-311.pyc
+#13 0.327 text.cpython-311.pyc
+#13 0.327 tls.cpython-311.pyc
+#13 0.327 
+#13 0.327 /install/anyio-4.12.0.dist-info:
+#13 0.327 INSTALLER
+#13 0.327 METADATA
+#13 0.327 RECORD
+#13 0.327 WHEEL
+#13 0.327 entry_points.txt
+#13 0.327 licenses
+#13 0.327 top_level.txt
+#13 0.327 
+#13 0.327 /install/anyio-4.12.0.dist-info/licenses:
+#13 0.327 LICENSE
+#13 0.327 
+#13 0.327 /install/bin:
+#13 0.327 fastapi
+#13 0.327 uvicorn
+#13 0.327 
+#13 0.327 /install/cffi:
+#13 0.327 __init__.py
+#13 0.327 __pycache__
+#13 0.327 _cffi_errors.h
+#13 0.327 _cffi_include.h
+#13 0.327 _embedding.h
+#13 0.327 _imp_emulation.py
+#13 0.327 _shimmed_dist_utils.py
+#13 0.327 api.py
+#13 0.327 backend_ctypes.py
+#13 0.327 cffi_opcode.py
+#13 0.327 commontypes.py
+#13 0.327 cparser.py
+#13 0.327 error.py
+#13 0.327 ffiplatform.py
+#13 0.327 lock.py
+#13 0.327 model.py
+#13 0.327 parse_c_type.h
+#13 0.327 pkgconfig.py
+#13 0.327 recompiler.py
+#13 0.327 setuptools_ext.py
+#13 0.327 vengine_cpy.py
+#13 0.327 vengine_gen.py
+#13 0.327 verifier.py
+#13 0.327 
+#13 0.327 /install/cffi/__pycache__:
+#13 0.327 __init__.cpython-311.pyc
+#13 0.327 _imp_emulation.cpython-311.pyc
+#13 0.327 _shimmed_dist_utils.cpython-311.pyc
+#13 0.327 api.cpython-311.pyc
+#13 0.327 backend_ctypes.cpython-311.pyc
+#13 0.327 cffi_opcode.cpython-311.pyc
+#13 0.328 commontypes.cpython-311.pyc
+#13 0.328 cparser.cpython-311.pyc
+#13 0.328 error.cpython-311.pyc
+#13 0.328 ffiplatform.cpython-311.pyc
+#13 0.328 lock.cpython-311.pyc
+#13 0.328 model.cpython-311.pyc
+#13 0.328 pkgconfig.cpython-311.pyc
+#13 0.328 recompiler.cpython-311.pyc
+#13 0.328 setuptools_ext.cpython-311.pyc
+#13 0.328 vengine_cpy.cpython-311.pyc
+#13 0.328 vengine_gen.cpython-311.pyc
+#13 0.328 verifier.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cffi-2.0.0.dist-info:
+#13 0.328 INSTALLER
+#13 0.328 METADATA
+#13 0.328 RECORD
+#13 0.328 WHEEL
+#13 0.328 entry_points.txt
+#13 0.328 licenses
+#13 0.328 top_level.txt
+#13 0.328 
+#13 0.328 /install/cffi-2.0.0.dist-info/licenses:
+#13 0.328 AUTHORS
+#13 0.328 LICENSE
+#13 0.328 
+#13 0.328 /install/click:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 _compat.py
+#13 0.328 _termui_impl.py
+#13 0.328 _textwrap.py
+#13 0.328 _utils.py
+#13 0.328 _winconsole.py
+#13 0.328 core.py
+#13 0.328 decorators.py
+#13 0.328 exceptions.py
+#13 0.328 formatting.py
+#13 0.328 globals.py
+#13 0.328 parser.py
+#13 0.328 py.typed
+#13 0.328 shell_completion.py
+#13 0.328 termui.py
+#13 0.328 testing.py
+#13 0.328 types.py
+#13 0.328 utils.py
+#13 0.328 
+#13 0.328 /install/click/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 _compat.cpython-311.pyc
+#13 0.328 _termui_impl.cpython-311.pyc
+#13 0.328 _textwrap.cpython-311.pyc
+#13 0.328 _utils.cpython-311.pyc
+#13 0.328 _winconsole.cpython-311.pyc
+#13 0.328 core.cpython-311.pyc
+#13 0.328 decorators.cpython-311.pyc
+#13 0.328 exceptions.cpython-311.pyc
+#13 0.328 formatting.cpython-311.pyc
+#13 0.328 globals.cpython-311.pyc
+#13 0.328 parser.cpython-311.pyc
+#13 0.328 shell_completion.cpython-311.pyc
+#13 0.328 termui.cpython-311.pyc
+#13 0.328 testing.cpython-311.pyc
+#13 0.328 types.cpython-311.pyc
+#13 0.328 utils.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/click-8.3.1.dist-info:
+#13 0.328 INSTALLER
+#13 0.328 METADATA
+#13 0.328 RECORD
+#13 0.328 WHEEL
+#13 0.328 licenses
+#13 0.328 
+#13 0.328 /install/click-8.3.1.dist-info/licenses:
+#13 0.328 LICENSE.txt
+#13 0.328 
+#13 0.328 /install/cryptography:
+#13 0.328 __about__.py
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 exceptions.py
+#13 0.328 fernet.py
+#13 0.328 hazmat
+#13 0.328 py.typed
+#13 0.328 utils.py
+#13 0.328 x509
+#13 0.328 
+#13 0.328 /install/cryptography/__pycache__:
+#13 0.328 __about__.cpython-311.pyc
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 exceptions.cpython-311.pyc
+#13 0.328 fernet.cpython-311.pyc
+#13 0.328 utils.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 _oid.py
+#13 0.328 asn1
+#13 0.328 backends
+#13 0.328 bindings
+#13 0.328 decrepit
+#13 0.328 primitives
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 _oid.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/asn1:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 asn1.py
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/asn1/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 asn1.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/backends:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 openssl
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/backends/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/backends/openssl:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 backend.py
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/backends/openssl/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 backend.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/bindings:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 _rust
+#13 0.328 _rust.abi3.so
+#13 0.328 openssl
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/bindings/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/bindings/_rust:
+#13 0.328 __init__.pyi
+#13 0.328 _openssl.pyi
+#13 0.328 asn1.pyi
+#13 0.328 declarative_asn1.pyi
+#13 0.328 exceptions.pyi
+#13 0.328 ocsp.pyi
+#13 0.328 openssl
+#13 0.328 pkcs12.pyi
+#13 0.328 pkcs7.pyi
+#13 0.328 test_support.pyi
+#13 0.328 x509.pyi
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/bindings/_rust/openssl:
+#13 0.328 __init__.pyi
+#13 0.328 aead.pyi
+#13 0.328 ciphers.pyi
+#13 0.328 cmac.pyi
+#13 0.328 dh.pyi
+#13 0.328 dsa.pyi
+#13 0.328 ec.pyi
+#13 0.328 ed25519.pyi
+#13 0.328 ed448.pyi
+#13 0.328 hashes.pyi
+#13 0.328 hmac.pyi
+#13 0.328 kdf.pyi
+#13 0.328 keys.pyi
+#13 0.328 poly1305.pyi
+#13 0.328 rsa.pyi
+#13 0.328 x25519.pyi
+#13 0.328 x448.pyi
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/bindings/openssl:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 _conditional.py
+#13 0.328 binding.py
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/bindings/openssl/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 _conditional.cpython-311.pyc
+#13 0.328 binding.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/decrepit:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 ciphers
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/decrepit/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/decrepit/ciphers:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 algorithms.py
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/decrepit/ciphers/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 algorithms.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/primitives:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 _asymmetric.py
+#13 0.328 _cipheralgorithm.py
+#13 0.328 _serialization.py
+#13 0.328 asymmetric
+#13 0.328 ciphers
+#13 0.328 cmac.py
+#13 0.328 constant_time.py
+#13 0.328 hashes.py
+#13 0.328 hmac.py
+#13 0.328 kdf
+#13 0.328 keywrap.py
+#13 0.328 padding.py
+#13 0.328 poly1305.py
+#13 0.328 serialization
+#13 0.328 twofactor
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/primitives/__pycache__:
+#13 0.328 __init__.cpython-311.pyc
+#13 0.328 _asymmetric.cpython-311.pyc
+#13 0.328 _cipheralgorithm.cpython-311.pyc
+#13 0.328 _serialization.cpython-311.pyc
+#13 0.328 cmac.cpython-311.pyc
+#13 0.328 constant_time.cpython-311.pyc
+#13 0.328 hashes.cpython-311.pyc
+#13 0.328 hmac.cpython-311.pyc
+#13 0.328 keywrap.cpython-311.pyc
+#13 0.328 padding.cpython-311.pyc
+#13 0.328 poly1305.cpython-311.pyc
+#13 0.328 
+#13 0.328 /install/cryptography/hazmat/primitives/asymmetric:
+#13 0.328 __init__.py
+#13 0.328 __pycache__
+#13 0.328 dh.py
+#13 0.328 dsa.py
+#13 0.329 ec.py
+#13 0.329 ed25519.py
+#13 0.329 ed448.py
+#13 0.329 padding.py
+#13 0.329 rsa.py
+#13 0.329 types.py
+#13 0.329 utils.py
+#13 0.329 x25519.py
+#13 0.329 x448.py
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/asymmetric/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 dh.cpython-311.pyc
+#13 0.329 dsa.cpython-311.pyc
+#13 0.329 ec.cpython-311.pyc
+#13 0.329 ed25519.cpython-311.pyc
+#13 0.329 ed448.cpython-311.pyc
+#13 0.329 padding.cpython-311.pyc
+#13 0.329 rsa.cpython-311.pyc
+#13 0.329 types.cpython-311.pyc
+#13 0.329 utils.cpython-311.pyc
+#13 0.329 x25519.cpython-311.pyc
+#13 0.329 x448.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/ciphers:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 aead.py
+#13 0.329 algorithms.py
+#13 0.329 base.py
+#13 0.329 modes.py
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/ciphers/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 aead.cpython-311.pyc
+#13 0.329 algorithms.cpython-311.pyc
+#13 0.329 base.cpython-311.pyc
+#13 0.329 modes.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/kdf:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 argon2.py
+#13 0.329 concatkdf.py
+#13 0.329 hkdf.py
+#13 0.329 kbkdf.py
+#13 0.329 pbkdf2.py
+#13 0.329 scrypt.py
+#13 0.329 x963kdf.py
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/kdf/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 argon2.cpython-311.pyc
+#13 0.329 concatkdf.cpython-311.pyc
+#13 0.329 hkdf.cpython-311.pyc
+#13 0.329 kbkdf.cpython-311.pyc
+#13 0.329 pbkdf2.cpython-311.pyc
+#13 0.329 scrypt.cpython-311.pyc
+#13 0.329 x963kdf.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/serialization:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 base.py
+#13 0.329 pkcs12.py
+#13 0.329 pkcs7.py
+#13 0.329 ssh.py
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/serialization/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 base.cpython-311.pyc
+#13 0.329 pkcs12.cpython-311.pyc
+#13 0.329 pkcs7.cpython-311.pyc
+#13 0.329 ssh.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/twofactor:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 hotp.py
+#13 0.329 totp.py
+#13 0.329 
+#13 0.329 /install/cryptography/hazmat/primitives/twofactor/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 hotp.cpython-311.pyc
+#13 0.329 totp.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/cryptography/x509:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 base.py
+#13 0.329 certificate_transparency.py
+#13 0.329 extensions.py
+#13 0.329 general_name.py
+#13 0.329 name.py
+#13 0.329 ocsp.py
+#13 0.329 oid.py
+#13 0.329 verification.py
+#13 0.329 
+#13 0.329 /install/cryptography/x509/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 base.cpython-311.pyc
+#13 0.329 certificate_transparency.cpython-311.pyc
+#13 0.329 extensions.cpython-311.pyc
+#13 0.329 general_name.cpython-311.pyc
+#13 0.329 name.cpython-311.pyc
+#13 0.329 ocsp.cpython-311.pyc
+#13 0.329 oid.cpython-311.pyc
+#13 0.329 verification.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/cryptography-46.0.3.dist-info:
+#13 0.329 INSTALLER
+#13 0.329 METADATA
+#13 0.329 RECORD
+#13 0.329 REQUESTED
+#13 0.329 WHEEL
+#13 0.329 licenses
+#13 0.329 
+#13 0.329 /install/cryptography-46.0.3.dist-info/licenses:
+#13 0.329 LICENSE
+#13 0.329 LICENSE.APACHE
+#13 0.329 LICENSE.BSD
+#13 0.329 
+#13 0.329 /install/fastapi:
+#13 0.329 __init__.py
+#13 0.329 __main__.py
+#13 0.329 __pycache__
+#13 0.329 _compat
+#13 0.329 applications.py
+#13 0.329 background.py
+#13 0.329 cli.py
+#13 0.329 concurrency.py
+#13 0.329 datastructures.py
+#13 0.329 dependencies
+#13 0.329 encoders.py
+#13 0.329 exception_handlers.py
+#13 0.329 exceptions.py
+#13 0.329 logger.py
+#13 0.329 middleware
+#13 0.329 openapi
+#13 0.329 param_functions.py
+#13 0.329 params.py
+#13 0.329 py.typed
+#13 0.329 requests.py
+#13 0.329 responses.py
+#13 0.329 routing.py
+#13 0.329 security
+#13 0.329 staticfiles.py
+#13 0.329 temp_pydantic_v1_params.py
+#13 0.329 templating.py
+#13 0.329 testclient.py
+#13 0.329 types.py
+#13 0.329 utils.py
+#13 0.329 websockets.py
+#13 0.329 
+#13 0.329 /install/fastapi/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 __main__.cpython-311.pyc
+#13 0.329 applications.cpython-311.pyc
+#13 0.329 background.cpython-311.pyc
+#13 0.329 cli.cpython-311.pyc
+#13 0.329 concurrency.cpython-311.pyc
+#13 0.329 datastructures.cpython-311.pyc
+#13 0.329 encoders.cpython-311.pyc
+#13 0.329 exception_handlers.cpython-311.pyc
+#13 0.329 exceptions.cpython-311.pyc
+#13 0.329 logger.cpython-311.pyc
+#13 0.329 param_functions.cpython-311.pyc
+#13 0.329 params.cpython-311.pyc
+#13 0.329 requests.cpython-311.pyc
+#13 0.329 responses.cpython-311.pyc
+#13 0.329 routing.cpython-311.pyc
+#13 0.329 staticfiles.cpython-311.pyc
+#13 0.329 temp_pydantic_v1_params.cpython-311.pyc
+#13 0.329 templating.cpython-311.pyc
+#13 0.329 testclient.cpython-311.pyc
+#13 0.329 types.cpython-311.pyc
+#13 0.329 utils.cpython-311.pyc
+#13 0.329 websockets.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/fastapi/_compat:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 main.py
+#13 0.329 may_v1.py
+#13 0.329 model_field.py
+#13 0.329 shared.py
+#13 0.329 v1.py
+#13 0.329 v2.py
+#13 0.329 
+#13 0.329 /install/fastapi/_compat/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 main.cpython-311.pyc
+#13 0.329 may_v1.cpython-311.pyc
+#13 0.329 model_field.cpython-311.pyc
+#13 0.329 shared.cpython-311.pyc
+#13 0.329 v1.cpython-311.pyc
+#13 0.329 v2.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/fastapi/dependencies:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 models.py
+#13 0.329 utils.py
+#13 0.329 
+#13 0.329 /install/fastapi/dependencies/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 models.cpython-311.pyc
+#13 0.329 utils.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/fastapi/middleware:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 asyncexitstack.py
+#13 0.329 cors.py
+#13 0.329 gzip.py
+#13 0.329 httpsredirect.py
+#13 0.329 trustedhost.py
+#13 0.329 wsgi.py
+#13 0.329 
+#13 0.329 /install/fastapi/middleware/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 asyncexitstack.cpython-311.pyc
+#13 0.329 cors.cpython-311.pyc
+#13 0.329 gzip.cpython-311.pyc
+#13 0.329 httpsredirect.cpython-311.pyc
+#13 0.329 trustedhost.cpython-311.pyc
+#13 0.329 wsgi.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/fastapi/openapi:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 constants.py
+#13 0.329 docs.py
+#13 0.329 models.py
+#13 0.329 utils.py
+#13 0.329 
+#13 0.329 /install/fastapi/openapi/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 constants.cpython-311.pyc
+#13 0.329 docs.cpython-311.pyc
+#13 0.329 models.cpython-311.pyc
+#13 0.329 utils.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/fastapi/security:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 api_key.py
+#13 0.329 base.py
+#13 0.329 http.py
+#13 0.329 oauth2.py
+#13 0.329 open_id_connect_url.py
+#13 0.329 utils.py
+#13 0.329 
+#13 0.329 /install/fastapi/security/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 api_key.cpython-311.pyc
+#13 0.329 base.cpython-311.pyc
+#13 0.329 http.cpython-311.pyc
+#13 0.329 oauth2.cpython-311.pyc
+#13 0.329 open_id_connect_url.cpython-311.pyc
+#13 0.329 utils.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/fastapi-0.124.4.dist-info:
+#13 0.329 INSTALLER
+#13 0.329 METADATA
+#13 0.329 RECORD
+#13 0.329 REQUESTED
+#13 0.329 WHEEL
+#13 0.329 entry_points.txt
+#13 0.329 licenses
+#13 0.329 
+#13 0.329 /install/fastapi-0.124.4.dist-info/licenses:
+#13 0.329 LICENSE
+#13 0.329 
+#13 0.329 /install/h11:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 _abnf.py
+#13 0.329 _connection.py
+#13 0.329 _events.py
+#13 0.329 _headers.py
+#13 0.329 _readers.py
+#13 0.329 _receivebuffer.py
+#13 0.329 _state.py
+#13 0.329 _util.py
+#13 0.329 _version.py
+#13 0.329 _writers.py
+#13 0.329 py.typed
+#13 0.329 
+#13 0.329 /install/h11/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 _abnf.cpython-311.pyc
+#13 0.329 _connection.cpython-311.pyc
+#13 0.329 _events.cpython-311.pyc
+#13 0.329 _headers.cpython-311.pyc
+#13 0.329 _readers.cpython-311.pyc
+#13 0.329 _receivebuffer.cpython-311.pyc
+#13 0.329 _state.cpython-311.pyc
+#13 0.329 _util.cpython-311.pyc
+#13 0.329 _version.cpython-311.pyc
+#13 0.329 _writers.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/h11-0.16.0.dist-info:
+#13 0.329 INSTALLER
+#13 0.329 METADATA
+#13 0.329 RECORD
+#13 0.329 WHEEL
+#13 0.329 licenses
+#13 0.329 top_level.txt
+#13 0.329 
+#13 0.329 /install/h11-0.16.0.dist-info/licenses:
+#13 0.329 LICENSE.txt
+#13 0.329 
+#13 0.329 /install/idna:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 codec.py
+#13 0.329 compat.py
+#13 0.329 core.py
+#13 0.329 idnadata.py
+#13 0.329 intranges.py
+#13 0.329 package_data.py
+#13 0.329 py.typed
+#13 0.329 uts46data.py
+#13 0.329 
+#13 0.329 /install/idna/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 codec.cpython-311.pyc
+#13 0.329 compat.cpython-311.pyc
+#13 0.329 core.cpython-311.pyc
+#13 0.329 idnadata.cpython-311.pyc
+#13 0.329 intranges.cpython-311.pyc
+#13 0.329 package_data.cpython-311.pyc
+#13 0.329 uts46data.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/idna-3.11.dist-info:
+#13 0.329 INSTALLER
+#13 0.329 METADATA
+#13 0.329 RECORD
+#13 0.329 WHEEL
+#13 0.329 licenses
+#13 0.329 
+#13 0.329 /install/idna-3.11.dist-info/licenses:
+#13 0.329 LICENSE.md
+#13 0.329 
+#13 0.329 /install/pycparser:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 _ast_gen.py
+#13 0.329 _build_tables.py
+#13 0.329 _c_ast.cfg
+#13 0.329 ast_transforms.py
+#13 0.329 c_ast.py
+#13 0.329 c_generator.py
+#13 0.329 c_lexer.py
+#13 0.329 c_parser.py
+#13 0.329 lextab.py
+#13 0.329 ply
+#13 0.329 plyparser.py
+#13 0.329 yacctab.py
+#13 0.329 
+#13 0.329 /install/pycparser/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 _ast_gen.cpython-311.pyc
+#13 0.329 _build_tables.cpython-311.pyc
+#13 0.329 ast_transforms.cpython-311.pyc
+#13 0.329 c_ast.cpython-311.pyc
+#13 0.329 c_generator.cpython-311.pyc
+#13 0.329 c_lexer.cpython-311.pyc
+#13 0.329 c_parser.cpython-311.pyc
+#13 0.329 lextab.cpython-311.pyc
+#13 0.329 plyparser.cpython-311.pyc
+#13 0.329 yacctab.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/pycparser/ply:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 cpp.py
+#13 0.329 ctokens.py
+#13 0.329 lex.py
+#13 0.329 yacc.py
+#13 0.329 ygen.py
+#13 0.329 
+#13 0.329 /install/pycparser/ply/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 cpp.cpython-311.pyc
+#13 0.329 ctokens.cpython-311.pyc
+#13 0.329 lex.cpython-311.pyc
+#13 0.329 yacc.cpython-311.pyc
+#13 0.329 ygen.cpython-311.pyc
+#13 0.329 
+#13 0.329 /install/pycparser-2.23.dist-info:
+#13 0.329 INSTALLER
+#13 0.329 LICENSE
+#13 0.329 METADATA
+#13 0.329 RECORD
+#13 0.329 WHEEL
+#13 0.329 top_level.txt
+#13 0.329 
+#13 0.329 /install/pydantic:
+#13 0.329 __init__.py
+#13 0.329 __pycache__
+#13 0.329 _internal
+#13 0.329 _migration.py
+#13 0.329 alias_generators.py
+#13 0.329 aliases.py
+#13 0.329 annotated_handlers.py
+#13 0.329 class_validators.py
+#13 0.329 color.py
+#13 0.329 config.py
+#13 0.329 dataclasses.py
+#13 0.329 datetime_parse.py
+#13 0.329 decorator.py
+#13 0.329 deprecated
+#13 0.329 env_settings.py
+#13 0.329 error_wrappers.py
+#13 0.329 errors.py
+#13 0.329 experimental
+#13 0.329 fields.py
+#13 0.329 functional_serializers.py
+#13 0.329 functional_validators.py
+#13 0.329 generics.py
+#13 0.329 json.py
+#13 0.329 json_schema.py
+#13 0.329 main.py
+#13 0.329 mypy.py
+#13 0.329 networks.py
+#13 0.329 parse.py
+#13 0.329 plugin
+#13 0.329 py.typed
+#13 0.329 root_model.py
+#13 0.329 schema.py
+#13 0.329 tools.py
+#13 0.329 type_adapter.py
+#13 0.329 types.py
+#13 0.329 typing.py
+#13 0.329 utils.py
+#13 0.329 v1
+#13 0.329 validate_call_decorator.py
+#13 0.329 validators.py
+#13 0.329 version.py
+#13 0.329 warnings.py
+#13 0.329 
+#13 0.329 /install/pydantic/__pycache__:
+#13 0.329 __init__.cpython-311.pyc
+#13 0.329 _migration.cpython-311.pyc
+#13 0.329 alias_generators.cpython-311.pyc
+#13 0.329 aliases.cpython-311.pyc
+#13 0.329 annotated_handlers.cpython-311.pyc
+#13 0.329 class_validators.cpython-311.pyc
+#13 0.329 color.cpython-311.pyc
+#13 0.329 config.cpython-311.pyc
+#13 0.329 dataclasses.cpython-311.pyc
+#13 0.329 datetime_parse.cpython-311.pyc
+#13 0.329 decorator.cpython-311.pyc
+#13 0.329 env_settings.cpython-311.pyc
+#13 0.329 error_wrappers.cpython-311.pyc
+#13 0.329 errors.cpython-311.pyc
+#13 0.329 fields.cpython-311.pyc
+#13 0.329 functional_serializers.cpython-311.pyc
+#13 0.329 functional_validators.cpython-311.pyc
+#13 0.329 generics.cpython-311.pyc
+#13 0.329 json.cpython-311.pyc
+#13 0.329 json_schema.cpython-311.pyc
+#13 0.329 main.cpython-311.pyc
+#13 0.329 mypy.cpython-311.pyc
+#13 0.329 networks.cpython-311.pyc
+#13 0.329 parse.cpython-311.pyc
+#13 0.329 root_model.cpython-311.pyc
+#13 0.329 schema.cpython-311.pyc
+#13 0.329 tools.cpython-311.pyc
+#13 0.329 type_adapter.cpython-311.pyc
+#13 0.329 types.cpython-311.pyc
+#13 0.329 typing.cpython-311.pyc
+#13 0.329 utils.cpython-311.pyc
+#13 0.331 validate_call_decorator.cpython-311.pyc
+#13 0.331 validators.cpython-311.pyc
+#13 0.331 version.cpython-311.pyc
+#13 0.331 warnings.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic/_internal:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 _config.py
+#13 0.331 _core_metadata.py
+#13 0.331 _core_utils.py
+#13 0.331 _dataclasses.py
+#13 0.331 _decorators.py
+#13 0.331 _decorators_v1.py
+#13 0.331 _discriminated_union.py
+#13 0.331 _docs_extraction.py
+#13 0.331 _fields.py
+#13 0.331 _forward_ref.py
+#13 0.331 _generate_schema.py
+#13 0.331 _generics.py
+#13 0.331 _git.py
+#13 0.331 _import_utils.py
+#13 0.331 _internal_dataclass.py
+#13 0.331 _known_annotated_metadata.py
+#13 0.331 _mock_val_ser.py
+#13 0.331 _model_construction.py
+#13 0.331 _namespace_utils.py
+#13 0.331 _repr.py
+#13 0.331 _schema_gather.py
+#13 0.331 _schema_generation_shared.py
+#13 0.331 _serializers.py
+#13 0.331 _signature.py
+#13 0.331 _typing_extra.py
+#13 0.331 _utils.py
+#13 0.331 _validate_call.py
+#13 0.331 _validators.py
+#13 0.331 
+#13 0.331 /install/pydantic/_internal/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 _config.cpython-311.pyc
+#13 0.331 _core_metadata.cpython-311.pyc
+#13 0.331 _core_utils.cpython-311.pyc
+#13 0.331 _dataclasses.cpython-311.pyc
+#13 0.331 _decorators.cpython-311.pyc
+#13 0.331 _decorators_v1.cpython-311.pyc
+#13 0.331 _discriminated_union.cpython-311.pyc
+#13 0.331 _docs_extraction.cpython-311.pyc
+#13 0.331 _fields.cpython-311.pyc
+#13 0.331 _forward_ref.cpython-311.pyc
+#13 0.331 _generate_schema.cpython-311.pyc
+#13 0.331 _generics.cpython-311.pyc
+#13 0.331 _git.cpython-311.pyc
+#13 0.331 _import_utils.cpython-311.pyc
+#13 0.331 _internal_dataclass.cpython-311.pyc
+#13 0.331 _known_annotated_metadata.cpython-311.pyc
+#13 0.331 _mock_val_ser.cpython-311.pyc
+#13 0.331 _model_construction.cpython-311.pyc
+#13 0.331 _namespace_utils.cpython-311.pyc
+#13 0.331 _repr.cpython-311.pyc
+#13 0.331 _schema_gather.cpython-311.pyc
+#13 0.331 _schema_generation_shared.cpython-311.pyc
+#13 0.331 _serializers.cpython-311.pyc
+#13 0.331 _signature.cpython-311.pyc
+#13 0.331 _typing_extra.cpython-311.pyc
+#13 0.331 _utils.cpython-311.pyc
+#13 0.331 _validate_call.cpython-311.pyc
+#13 0.331 _validators.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic/deprecated:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 class_validators.py
+#13 0.331 config.py
+#13 0.331 copy_internals.py
+#13 0.331 decorator.py
+#13 0.331 json.py
+#13 0.331 parse.py
+#13 0.331 tools.py
+#13 0.331 
+#13 0.331 /install/pydantic/deprecated/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 class_validators.cpython-311.pyc
+#13 0.331 config.cpython-311.pyc
+#13 0.331 copy_internals.cpython-311.pyc
+#13 0.331 decorator.cpython-311.pyc
+#13 0.331 json.cpython-311.pyc
+#13 0.331 parse.cpython-311.pyc
+#13 0.331 tools.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic/experimental:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 arguments_schema.py
+#13 0.331 missing_sentinel.py
+#13 0.331 pipeline.py
+#13 0.331 
+#13 0.331 /install/pydantic/experimental/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 arguments_schema.cpython-311.pyc
+#13 0.331 missing_sentinel.cpython-311.pyc
+#13 0.331 pipeline.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic/plugin:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 _loader.py
+#13 0.331 _schema_validator.py
+#13 0.331 
+#13 0.331 /install/pydantic/plugin/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 _loader.cpython-311.pyc
+#13 0.331 _schema_validator.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic/v1:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 _hypothesis_plugin.py
+#13 0.331 annotated_types.py
+#13 0.331 class_validators.py
+#13 0.331 color.py
+#13 0.331 config.py
+#13 0.331 dataclasses.py
+#13 0.331 datetime_parse.py
+#13 0.331 decorator.py
+#13 0.331 env_settings.py
+#13 0.331 error_wrappers.py
+#13 0.331 errors.py
+#13 0.331 fields.py
+#13 0.331 generics.py
+#13 0.331 json.py
+#13 0.331 main.py
+#13 0.331 mypy.py
+#13 0.331 networks.py
+#13 0.331 parse.py
+#13 0.331 py.typed
+#13 0.331 schema.py
+#13 0.331 tools.py
+#13 0.331 types.py
+#13 0.331 typing.py
+#13 0.331 utils.py
+#13 0.331 validators.py
+#13 0.331 version.py
+#13 0.331 
+#13 0.331 /install/pydantic/v1/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 _hypothesis_plugin.cpython-311.pyc
+#13 0.331 annotated_types.cpython-311.pyc
+#13 0.331 class_validators.cpython-311.pyc
+#13 0.331 color.cpython-311.pyc
+#13 0.331 config.cpython-311.pyc
+#13 0.331 dataclasses.cpython-311.pyc
+#13 0.331 datetime_parse.cpython-311.pyc
+#13 0.331 decorator.cpython-311.pyc
+#13 0.331 env_settings.cpython-311.pyc
+#13 0.331 error_wrappers.cpython-311.pyc
+#13 0.331 errors.cpython-311.pyc
+#13 0.331 fields.cpython-311.pyc
+#13 0.331 generics.cpython-311.pyc
+#13 0.331 json.cpython-311.pyc
+#13 0.331 main.cpython-311.pyc
+#13 0.331 mypy.cpython-311.pyc
+#13 0.331 networks.cpython-311.pyc
+#13 0.331 parse.cpython-311.pyc
+#13 0.331 schema.cpython-311.pyc
+#13 0.331 tools.cpython-311.pyc
+#13 0.331 types.cpython-311.pyc
+#13 0.331 typing.cpython-311.pyc
+#13 0.331 utils.cpython-311.pyc
+#13 0.331 validators.cpython-311.pyc
+#13 0.331 version.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic-2.12.5.dist-info:
+#13 0.331 INSTALLER
+#13 0.331 METADATA
+#13 0.331 RECORD
+#13 0.331 WHEEL
+#13 0.331 licenses
+#13 0.331 
+#13 0.331 /install/pydantic-2.12.5.dist-info/licenses:
+#13 0.331 LICENSE
+#13 0.331 
+#13 0.331 /install/pydantic_core:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 _pydantic_core.cpython-311-x86_64-linux-gnu.so
+#13 0.331 _pydantic_core.pyi
+#13 0.331 core_schema.py
+#13 0.331 py.typed
+#13 0.331 
+#13 0.331 /install/pydantic_core/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 core_schema.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/pydantic_core-2.41.5.dist-info:
+#13 0.331 INSTALLER
+#13 0.331 METADATA
+#13 0.331 RECORD
+#13 0.331 WHEEL
+#13 0.331 licenses
+#13 0.331 
+#13 0.331 /install/pydantic_core-2.41.5.dist-info/licenses:
+#13 0.331 LICENSE
+#13 0.331 
+#13 0.331 /install/starlette:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 _exception_handler.py
+#13 0.331 _utils.py
+#13 0.331 applications.py
+#13 0.331 authentication.py
+#13 0.331 background.py
+#13 0.331 concurrency.py
+#13 0.331 config.py
+#13 0.331 convertors.py
+#13 0.331 datastructures.py
+#13 0.331 endpoints.py
+#13 0.331 exceptions.py
+#13 0.331 formparsers.py
+#13 0.331 middleware
+#13 0.331 py.typed
+#13 0.331 requests.py
+#13 0.331 responses.py
+#13 0.331 routing.py
+#13 0.331 schemas.py
+#13 0.331 staticfiles.py
+#13 0.331 status.py
+#13 0.331 templating.py
+#13 0.331 testclient.py
+#13 0.331 types.py
+#13 0.331 websockets.py
+#13 0.331 
+#13 0.331 /install/starlette/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 _exception_handler.cpython-311.pyc
+#13 0.331 _utils.cpython-311.pyc
+#13 0.331 applications.cpython-311.pyc
+#13 0.331 authentication.cpython-311.pyc
+#13 0.331 background.cpython-311.pyc
+#13 0.331 concurrency.cpython-311.pyc
+#13 0.331 config.cpython-311.pyc
+#13 0.331 convertors.cpython-311.pyc
+#13 0.331 datastructures.cpython-311.pyc
+#13 0.331 endpoints.cpython-311.pyc
+#13 0.331 exceptions.cpython-311.pyc
+#13 0.331 formparsers.cpython-311.pyc
+#13 0.331 requests.cpython-311.pyc
+#13 0.331 responses.cpython-311.pyc
+#13 0.331 routing.cpython-311.pyc
+#13 0.331 schemas.cpython-311.pyc
+#13 0.331 staticfiles.cpython-311.pyc
+#13 0.331 status.cpython-311.pyc
+#13 0.331 templating.cpython-311.pyc
+#13 0.331 testclient.cpython-311.pyc
+#13 0.331 types.cpython-311.pyc
+#13 0.331 websockets.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/starlette/middleware:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 authentication.py
+#13 0.331 base.py
+#13 0.331 cors.py
+#13 0.331 errors.py
+#13 0.331 exceptions.py
+#13 0.331 gzip.py
+#13 0.331 httpsredirect.py
+#13 0.331 sessions.py
+#13 0.331 trustedhost.py
+#13 0.331 wsgi.py
+#13 0.331 
+#13 0.331 /install/starlette/middleware/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 authentication.cpython-311.pyc
+#13 0.331 base.cpython-311.pyc
+#13 0.331 cors.cpython-311.pyc
+#13 0.331 errors.cpython-311.pyc
+#13 0.331 exceptions.cpython-311.pyc
+#13 0.331 gzip.cpython-311.pyc
+#13 0.331 httpsredirect.cpython-311.pyc
+#13 0.331 sessions.cpython-311.pyc
+#13 0.331 trustedhost.cpython-311.pyc
+#13 0.331 wsgi.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/starlette-0.50.0.dist-info:
+#13 0.331 INSTALLER
+#13 0.331 METADATA
+#13 0.331 RECORD
+#13 0.331 WHEEL
+#13 0.331 licenses
+#13 0.331 
+#13 0.331 /install/starlette-0.50.0.dist-info/licenses:
+#13 0.331 LICENSE.md
+#13 0.331 
+#13 0.331 /install/typing_extensions-4.15.0.dist-info:
+#13 0.331 INSTALLER
+#13 0.331 METADATA
+#13 0.331 RECORD
+#13 0.331 WHEEL
+#13 0.331 licenses
+#13 0.331 
+#13 0.331 /install/typing_extensions-4.15.0.dist-info/licenses:
+#13 0.331 LICENSE
+#13 0.331 
+#13 0.331 /install/typing_inspection:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 introspection.py
+#13 0.331 py.typed
+#13 0.331 typing_objects.py
+#13 0.331 typing_objects.pyi
+#13 0.331 
+#13 0.331 /install/typing_inspection/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 introspection.cpython-311.pyc
+#13 0.331 typing_objects.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/typing_inspection-0.4.2.dist-info:
+#13 0.331 INSTALLER
+#13 0.331 METADATA
+#13 0.331 RECORD
+#13 0.331 WHEEL
+#13 0.331 licenses
+#13 0.331 
+#13 0.331 /install/typing_inspection-0.4.2.dist-info/licenses:
+#13 0.331 LICENSE
+#13 0.331 
+#13 0.331 /install/uvicorn:
+#13 0.331 __init__.py
+#13 0.331 __main__.py
+#13 0.331 __pycache__
+#13 0.331 _compat.py
+#13 0.331 _subprocess.py
+#13 0.331 _types.py
+#13 0.331 config.py
+#13 0.331 importer.py
+#13 0.331 lifespan
+#13 0.331 logging.py
+#13 0.331 loops
+#13 0.331 main.py
+#13 0.331 middleware
+#13 0.331 protocols
+#13 0.331 py.typed
+#13 0.331 server.py
+#13 0.331 supervisors
+#13 0.331 workers.py
+#13 0.331 
+#13 0.331 /install/uvicorn/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 __main__.cpython-311.pyc
+#13 0.331 _compat.cpython-311.pyc
+#13 0.331 _subprocess.cpython-311.pyc
+#13 0.331 _types.cpython-311.pyc
+#13 0.331 config.cpython-311.pyc
+#13 0.331 importer.cpython-311.pyc
+#13 0.331 logging.cpython-311.pyc
+#13 0.331 main.cpython-311.pyc
+#13 0.331 server.cpython-311.pyc
+#13 0.331 workers.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/lifespan:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 off.py
+#13 0.331 on.py
+#13 0.331 
+#13 0.331 /install/uvicorn/lifespan/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 off.cpython-311.pyc
+#13 0.331 on.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/loops:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 asyncio.py
+#13 0.331 auto.py
+#13 0.331 uvloop.py
+#13 0.331 
+#13 0.331 /install/uvicorn/loops/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 asyncio.cpython-311.pyc
+#13 0.331 auto.cpython-311.pyc
+#13 0.331 uvloop.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/middleware:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 asgi2.py
+#13 0.331 message_logger.py
+#13 0.331 proxy_headers.py
+#13 0.331 wsgi.py
+#13 0.331 
+#13 0.331 /install/uvicorn/middleware/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 asgi2.cpython-311.pyc
+#13 0.331 message_logger.cpython-311.pyc
+#13 0.331 proxy_headers.cpython-311.pyc
+#13 0.331 wsgi.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/protocols:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 http
+#13 0.331 utils.py
+#13 0.331 websockets
+#13 0.331 
+#13 0.331 /install/uvicorn/protocols/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 utils.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/protocols/http:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 auto.py
+#13 0.331 flow_control.py
+#13 0.331 h11_impl.py
+#13 0.331 httptools_impl.py
+#13 0.331 
+#13 0.331 /install/uvicorn/protocols/http/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 auto.cpython-311.pyc
+#13 0.331 flow_control.cpython-311.pyc
+#13 0.331 h11_impl.cpython-311.pyc
+#13 0.331 httptools_impl.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/protocols/websockets:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 auto.py
+#13 0.331 websockets_impl.py
+#13 0.331 websockets_sansio_impl.py
+#13 0.331 wsproto_impl.py
+#13 0.331 
+#13 0.331 /install/uvicorn/protocols/websockets/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 auto.cpython-311.pyc
+#13 0.331 websockets_impl.cpython-311.pyc
+#13 0.331 websockets_sansio_impl.cpython-311.pyc
+#13 0.331 wsproto_impl.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn/supervisors:
+#13 0.331 __init__.py
+#13 0.331 __pycache__
+#13 0.331 basereload.py
+#13 0.331 multiprocess.py
+#13 0.331 statreload.py
+#13 0.331 watchfilesreload.py
+#13 0.331 
+#13 0.331 /install/uvicorn/supervisors/__pycache__:
+#13 0.331 __init__.cpython-311.pyc
+#13 0.331 basereload.cpython-311.pyc
+#13 0.331 multiprocess.cpython-311.pyc
+#13 0.331 statreload.cpython-311.pyc
+#13 0.331 watchfilesreload.cpython-311.pyc
+#13 0.331 
+#13 0.331 /install/uvicorn-0.38.0.dist-info:
+#13 0.331 INSTALLER
+#13 0.331 METADATA
+#13 0.331 RECORD
+#13 0.331 REQUESTED
+#13 0.331 WHEEL
+#13 0.331 entry_points.txt
+#13 0.331 licenses
+#13 0.331 
+#13 0.331 /install/uvicorn-0.38.0.dist-info/licenses:
+#13 0.331 LICENSE.md
+#13 DONE 0.3s
+
+#14 [runtime 5/8] COPY --from=builder /install /usr/local/
+#14 DONE 0.2s
+
+#15 [runtime 6/8] COPY . .
+#15 DONE 0.1s
+
+#16 [runtime 7/8] RUN chmod 0644 cron/job.cron && crontab cron/job.cron
+#16 DONE 0.3s
+
+#17 [runtime 8/8] RUN mkdir -p /data /cron
+#17 DONE 0.3s
+
+#18 exporting to image
+#18 exporting layers
+#18 exporting layers 1.8s done
+#18 exporting manifest sha256:b756f675416068306261460b4828b10e734355adf8eb8be4ac9464a83b575633 0.0s done
+#18 exporting config sha256:56f25e3b06e6eff3722f19942ef2cf6fb1cf3c7233b8d1c3db2a53069bbf6c08 0.0s done
+#18 exporting attestation manifest sha256:75528aaa325679b811c865266ffc2cbe0c5a61bc5541b79ed43abf0adbc0c4a0 0.0s done
+#18 exporting manifest list sha256:d4b3fbb10076164d2833c666fba9983ee94beaf55d0fa6a928c8e355445065b9 0.0s done
+#18 naming to docker.io/library/gpp-task2-pki-2fa-app:latest done
+#18 unpacking to docker.io/library/gpp-task2-pki-2fa-app:latest
+#18 unpacking to docker.io/library/gpp-task2-pki-2fa-app:latest 0.7s done
+#18 DONE 2.6s
+
+#19 resolving provenance for metadata file
+#19 DONE 0.0s
